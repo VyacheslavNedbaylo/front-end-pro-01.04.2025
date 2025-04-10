@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HW 3.3. Розкласти п'ятизначне число</title>
+</head>
+<body>
+    <script>
+        const number = prompt("Введіть п’ятизначне число:");
+        if (number.length === 5 && !isNaN(number)) {
+            console.log(number.split('').join(' '));
+        } else {
+           console.log("Помилка: введіть п’ятизначне число!");
+        }
+    </script>
+</body>
+</html>
