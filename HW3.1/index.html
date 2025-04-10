@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>HW 3.1. Перелік типів</title>
+</head>
+<body>
+    <h1>Перевірка типів даних у консолі</h1>
+
+    <script>
+        const number = 33;
+        const string = "Привіт, світ!";
+        const boolean = true;
+        const undefinedValue = undefined;
+        const nullValue = null;
+        const object = { name: "Микола" };
+        const array = [1, 2, 3];
+        const func = function () { return "Hello"; };
+        const bigIntValue = 1234567890123456789012345678901234567890n;
+        const symbolValue = Symbol("символ");
+
+        console.log("number:", typeof number);
+        console.log("string:", typeof string);
+        console.log("boolean:", typeof boolean);
+        console.log("undefined:", typeof undefinedValue);
+        console.log("null:", typeof nullValue); 
+        console.log("object:", typeof object);
+        console.log("array:", typeof array); 
+        console.log("function:", typeof func);
+        console.log("bigint:", typeof bigIntValue);
+        console.log("symbol:", typeof symbolValue);
+    </script>
+</body>
+</html>
