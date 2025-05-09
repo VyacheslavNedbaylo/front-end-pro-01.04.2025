@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HW 11.3</title>
+    <style>
+      img {
+        max-width: 300px;
+        height: auto;
+        display: block;
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HW 11.3. Отримання випадкового зображення</h1>
+    <h2>Будьласка натисніть кнопку, щоб побачити випадкове зображення</h2>
+    <button id="show-image-btn">Показати зображення</button>
+    <div id="image-container"></div>
+
+    <script>
+      const button = document.getElementById("show-image-btn");
+      const container = document.getElementById("image-container");
+
+      button.addEventListener("click", () => {
+        const randomNumber = Math.floor(Math.random() * 9) + 1;
+        const imagePath = `images/${randomNumber}.jpg`;
+
+        let img = container.querySelector("img");
+        if (!img) {
+          img = document.createElement("img");
+          container.appendChild(img);
+        }
+
+        img.src = imagePath;
+        img.alt = `Зображення №${randomNumber}`;
+      });
+    </script>
+  </body>
+</html>
