@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HW 11.2. Кнопка зміни кольору</title>
+    <style>
+      #text-block {
+        font-size: 20px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="text-block">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur nemo
+      sequi labore, assumenda reiciendis corrupti dolorem fugit nesciunt vero id
+      quos illo quae? Voluptas ducimus enim minima provident fugit cupiditate,
+      inventore nostrum sit iste eaque excepturi saepe reprehenderit incidunt
+      minus rerum commodi molestiae, corporis ex repudiandae aut voluptate ut.
+      Unde?
+    </p>
+    <button id="toggle-color-btn">Змінити колір</button>
+
+    <script>
+      const textBlock = document.getElementById("text-block");
+      const button = document.getElementById("toggle-color-btn");
+
+      let isOriginalColor = true;
+
+      button.addEventListener("click", () => {
+        if (isOriginalColor) {
+          textBlock.style.color = "blue";
+        } else {
+          textBlock.style.color = "black";
+        }
+        isOriginalColor = !isOriginalColor;
+      });
+    </script>
+  </body>
+</html>
