@@ -1,0 +1,15 @@
+body {
+    background-color: #333333;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.btn{
+    display: flex;
+    gap: 120px;
+    justify-content: center;
+    margin-top: 40px;
+}
