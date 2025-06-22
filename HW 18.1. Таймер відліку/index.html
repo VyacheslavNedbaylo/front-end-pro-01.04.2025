@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="./index.js" defer></script>
+    <title>HW 18.1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+      }
+      #time {
+        font-size: 48px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      HW 18.1. Таймер відліку <br />
+      <br />
+      Зворотній таймер
+    </h1>
+
+    <div id="time">01:25</div>
+
+    <input type="text" id="userTime" placeholder="Введіть час (MM:SS)" />
+    <button onclick="setCustomTime()">Старт з мого часу</button>
+
+    <script>
+      let defaultTime = "01:25";
+      let countdown;
+      let totalSeconds;
+
+      function parseTimeToSeconds(timeStr) {
+        const [minutes, seconds] = timeStr.split(":").map(Number);
+        return minutes * 60 + seconds;
+      }
+
+      function formatTime(seconds) {
+        const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+        const s = String(seconds % 60).padStart(2, "0");
+        return `${m}:${s}`;
+      }
+
+      function updateDisplay() {
+        document.getElementById("time").textContent = formatTime(totalSeconds);
+      }
+
+      function startTimer() {
+        clearInterval(countdown);
+        updateDisplay();
+
+        countdown = setInterval(() => {
+          totalSeconds--;
+          updateDisplay();
+
+          if (totalSeconds <= 0) {
+            clearInterval(countdown);
+          }
+        }, 1000);
+      }
+
+      function setCustomTime() {
+        const input = document.getElementById("userTime").value;
+        if (!/^\d{1,2}:\d{2}$/.test(input)) {
+          alert("Введіть час у форматі MM:SS");
+          return;
+        }
+
+        totalSeconds = parseTimeToSeconds(input);
+        startTimer();
+      }
+
+      window.onload = function () {
+        totalSeconds = parseTimeToSeconds(defaultTime);
+        startTimer();
+      };
+    </script>
+  </body>
+</html>
